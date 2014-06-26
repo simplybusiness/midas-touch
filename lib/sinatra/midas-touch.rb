@@ -8,7 +8,7 @@ module Sinatra
         @form.instance_eval(&block)
         @form.group.filter!
       end
-      @form.group
+      @form.nil? ? ::MidasTouch::InputGroup.new : @form.group
     end
   end
 
