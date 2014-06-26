@@ -1,4 +1,4 @@
-module Midas
+module MidasTouch
   class Input
 
     attr_accessor :name

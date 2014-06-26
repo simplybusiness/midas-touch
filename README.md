@@ -1,4 +1,4 @@
-# Midas
+# Midas Touch
 
 > Everything I touch turns to gold!
 
@@ -16,7 +16,7 @@ should understand the exact way their validations and filters work.**
 
 Add this line to your application's Gemfile:
 
-    gem 'midas'
+    gem 'midas-touch'
 
 And then execute:
 
@@ -24,7 +24,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install midas
+    $ gem install midas-touch
 
 ## Usage
 
@@ -33,7 +33,7 @@ Or install it yourself as:
 #### Classic
 
     require "sinatra"
-    require "midas"
+    require "midas-touch"
 
     post("foo") do
       form do
@@ -59,40 +59,40 @@ Or install it yourself as:
 #### Modular
 
     require "sinatra/base"
-    require "midas"
+    require "midas-touch"
 
     class Application < Sinatra::Base
-      helpers Sinatra::Midas
+      helpers Sinatra::MidasTouch
     end
 
 
 #### Creating filters
 
-    class StripFilter < Midas::Filter
+    class StripFilter < MidasTouch::Filter
       def call(value)
         value.respond_to?(:strip) ? value.strip : value
       end
     end
 
     # Register filter for Sinatra DSL
-    Midas.register_filter(StripFilter.new(:strip))
+    MidasTouch.register_filter(StripFilter.new(:strip))
 
 #### Creating validators
 
-    class PositiveNumberValidator < Midas::Validation
+    class PositiveNumberValidator < MidasTouch::Validation
       def call(value)
         value.to_f > 0
       end
     end
 
     # Register validation for Sinatra DSL
-    Midas.register_validation(PositiveNumberValidator.new(:positive))
+    MidasTouch.register_validation(PositiveNumberValidator.new(:positive))
 
 #### Using inputs
 
-    first_name = Midas::Input.new(:first_name)
-    first_name.filters << Midas.find_filter(:strip)
-    first_name.validations << Midas.find_validator(:positive)
+    first_name = MidasTouch::Input.new(:first_name)
+    first_name.filters << MidasTouch.find_filter(:strip)
+    first_name.validations << MidasTouch.find_validator(:positive)
     first_name.value = " Darren Coxall "
 
     # filter
@@ -103,11 +103,11 @@ Or install it yourself as:
 
 #### Using groups
 
-    form = Midas::InputGroup.new
-    form.inputs << first_name # first_name is Midas::Input instance
+    form = MidasTouch::InputGroup.new
+    form.inputs << first_name # first_name is MidasTouch::Input instance
 
     # form wide filtering
-    form.filters << Midas.find_filter(:strip)
+    form.filters << MidasTouch.find_filter(:strip)
     form.filter!
 
     # validation
@@ -115,12 +115,12 @@ Or install it yourself as:
 
 #### Accessing values
 
-    # form = Midas::InputGroup.new
+    # form = MidasTouch::InputGroup.new
     form[:first_name] # => "Darren Coxall"
     form[:unknown]    # => nil
 
     # Finding the input object
-    form.input(:first_name) # => Midas::Input
+    form.input(:first_name) # => MidasTouch::Input
 
 ## Contributing
 

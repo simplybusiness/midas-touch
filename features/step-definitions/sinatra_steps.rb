@@ -5,21 +5,21 @@ Given(/^the following application:$/) do |string|
 end
 
 Then(/^we have an InputGroup$/) do
-  assert_instance_of(Midas::InputGroup, @result)
+  assert_instance_of(MidasTouch::InputGroup, @result)
 end
 
 Given(/^there is a filter called "(.*?)"$/) do |name|
-  filter = ::Midas::Filter.new(name)
-  ::Midas.register_filter(filter)
+  filter = ::MidasTouch::Filter.new(name)
+  ::MidasTouch.register_filter(filter)
 end
 
 Given(/^there is a validation called "(.*?)"$/) do |name|
-  validation = Class.new(::Midas::Validation) do
+  validation = Class.new(::MidasTouch::Validation) do
     def call(value)
       value == "duck"
     end
   end.new(name)
-  ::Midas.register_validation(validation)
+  ::MidasTouch.register_validation(validation)
 end
 
 Then(/^the group has the following inputs:$/) do |table|

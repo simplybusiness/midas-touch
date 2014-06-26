@@ -1,4 +1,4 @@
-module Midas
+module MidasTouch
   class Validation
 
     attr_accessor :name

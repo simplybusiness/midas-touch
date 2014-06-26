@@ -1,3 +1,3 @@
-module Midas
+module MidasTouch
   VERSION = "1.0.0"
 end

@@ -1,15 +1,15 @@
 Given(/^I wish to create a new filter$/) do
-  @expected_class = Midas::Filter
+  @expected_class = MidasTouch::Filter
 end
 
 Given(/^I have a Filter$/) do
-  @filter = Midas::Filter.new(:test)
+  @filter = MidasTouch::Filter.new(:test)
 end
 
-When(/^I register it with Midas$/) do
-  Midas.register_filter(@filter)
+When(/^I register it with MidasTouch$/) do
+  MidasTouch.register_filter(@filter)
 end
 
 Then(/^I can retrieve it by name$/) do
-  assert_equal(@filter, Midas.find_filter(:test))
+  assert_equal(@filter, MidasTouch.find_filter(:test))
 end

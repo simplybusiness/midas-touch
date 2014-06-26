@@ -1,5 +1,5 @@
 Given(/^I wish to create an input$/) do
-  @expected_class = Midas::Input
+  @expected_class = MidasTouch::Input
 end
 
 Then(/^I can create one by calling "(.*?)"$/) do |code|
@@ -12,7 +12,7 @@ Then(/^it will be named "(.*?)"$/) do |name|
 end
 
 Given(/^I have an Input$/) do
-  @input = Midas::Input.new(:example)
+  @input = MidasTouch::Input.new(:example)
 end
 
 Then(/^I can set the value$/) do
@@ -21,7 +21,7 @@ Then(/^I can set the value$/) do
 end
 
 When(/^I add a filter$/) do
-  filter = Class.new(Midas::Filter) do
+  filter = Class.new(MidasTouch::Filter) do
     def call(value)
       value.to_s.upcase
     end
@@ -31,7 +31,7 @@ When(/^I add a filter$/) do
 end
 
 When(/^I add a validation rule$/) do
-  rule = Class.new(Midas::Validation) do
+  rule = Class.new(MidasTouch::Validation) do
     def call(value)
       value == "duck"
     end

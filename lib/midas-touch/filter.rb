@@ -1,4 +1,4 @@
-module Midas
+module MidasTouch
   class Filter
 
     attr_accessor :name

@@ -1,10 +1,10 @@
-require "midas/version"
-require "midas/filter"
-require "midas/validation"
-require "midas/input"
-require "midas/input_group"
+require "midas-touch/version"
+require "midas-touch/filter"
+require "midas-touch/validation"
+require "midas-touch/input"
+require "midas-touch/input_group"
 
-module Midas
+module MidasTouch
 
   @@filters     = Hash.new
   @@validations = Hash.new
@@ -32,5 +32,5 @@ module Midas
 end
 
 if self.class.const_defined?(:Sinatra)
-  require "sinatra/midas"
+  require "sinatra/midas-touch"
 end

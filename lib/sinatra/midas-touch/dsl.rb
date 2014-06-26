@@ -1,18 +1,18 @@
 module Sinatra
-  module Midas
+  module MidasTouch
     class DSL
 
       attr_reader :group
 
       def initialize(params)
         @params = params
-        @group = ::Midas::InputGroup.new
+        @group = ::MidasTouch::InputGroup.new
       end
 
       def field(name, *args)
-        input = ::Midas::Input.new(name)
+        input = ::MidasTouch::Input.new(name)
         args.each do |rule|
-          input.validations << ::Midas.find_validation(rule)
+          input.validations << ::MidasTouch.find_validation(rule)
         end
         input.value = @params[name]
         @group.inputs << input
@@ -20,7 +20,7 @@ module Sinatra
 
       def filters(*names)
         names.each do |name|
-          @group.filters << ::Midas.find_filter(name)
+          @group.filters << ::MidasTouch.find_filter(name)
         end
       end
 

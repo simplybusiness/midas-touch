@@ -6,7 +6,7 @@ Feature: Input Representation
 
   Scenario: Creating a new Input
     Given I wish to create an input
-    Then I can create one by calling "Midas::Input.new(:name)"
+    Then I can create one by calling "MidasTouch::Input.new(:name)"
     And it will be named "name"
 
   Scenario: Setting an inputs value

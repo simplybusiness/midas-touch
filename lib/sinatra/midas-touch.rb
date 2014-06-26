@@ -1,7 +1,7 @@
-require 'sinatra/midas/dsl'
+require 'sinatra/midas-touch/dsl'
 
 module Sinatra
-  module Midas
+  module MidasTouch
     def form(&block)
       if block_given?
         @form = DSL.new(params)
@@ -12,5 +12,5 @@ module Sinatra
     end
   end
 
-  helpers Midas
+  helpers MidasTouch
 end

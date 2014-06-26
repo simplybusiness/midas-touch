@@ -1,16 +1,16 @@
 Given(/^I have an InputGroup$/) do
-  @group = Midas::InputGroup.new
+  @group = MidasTouch::InputGroup.new
 end
 
 Then(/^I can add inputs$/) do
-  @group.inputs << Midas::Input.new(:foo)
-  @group.inputs << Midas::Input.new(:bar)
+  @group.inputs << MidasTouch::Input.new(:foo)
+  @group.inputs << MidasTouch::Input.new(:bar)
   assert_includes(@group.fields, :foo)
   assert_includes(@group.fields, :bar)
 end
 
 And(/^it has a Filter$/) do
-  filter = Class.new(Midas::Filter) do
+  filter = Class.new(MidasTouch::Filter) do
     def call(value)
       value.to_s.upcase
     end
@@ -19,8 +19,8 @@ And(/^it has a Filter$/) do
 end
 
 When(/^it is filtered$/) do
-  @group.inputs << Midas::Input.new(:foo)
-  @group.inputs << Midas::Input.new(:bar)
+  @group.inputs << MidasTouch::Input.new(:foo)
+  @group.inputs << MidasTouch::Input.new(:bar)
   @group.input(:foo).value = "foo"
   @group.input(:bar).value = "bar"
   @group.filter!
@@ -33,7 +33,7 @@ Then(/^all inputs are filtered$/) do
 end
 
 And(/^it has a validation rule$/) do
-  validation = Class.new(Midas::Validation) do
+  validation = Class.new(MidasTouch::Validation) do
     def call(value)
       value == "duck"
     end
@@ -42,15 +42,15 @@ And(/^it has a validation rule$/) do
 end
 
 And(/^it has inputs$/) do
-  @group.inputs << Midas::Input.new(:foo)
-  @group.inputs << Midas::Input.new(:bar)
+  @group.inputs << MidasTouch::Input.new(:foo)
+  @group.inputs << MidasTouch::Input.new(:bar)
   @group.input(:foo).value = "foo"
   @group.input(:bar).value = "bar"
 end
 
 When(/^it is validated$/) do
-  @group.inputs << Midas::Input.new(:bar)
-  @group.inputs << Midas::Input.new(:baz)
+  @group.inputs << MidasTouch::Input.new(:bar)
+  @group.inputs << MidasTouch::Input.new(:baz)
   @group.input(:bar).value = "duck"
   @group.input(:baz).value = "bar"
   @result = @group.valid?

@@ -1,12 +1,12 @@
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'midas/version'
+require 'midas-touch/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "midas"
-  spec.version       = Midas::VERSION
+  spec.name          = "midas-touch"
+  spec.version       = MidasTouch::VERSION
   spec.authors       = ["Darren Coxall"]
-  spec.email         = ["darren@darrencoxall.com"]
+  spec.email         = ["darren@simplybusiness.co.uk"]
   spec.summary       = %q{Turn all your inputs to Gold.}
   spec.description   = %q{Clean and validate your inputs from forms or other areas of your application.}
   spec.license       = "MIT"

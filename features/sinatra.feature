@@ -8,7 +8,7 @@ Feature: Extending Sinatra applications
     And there is a validation called "duck_only"
     And the following application:
       """
-      helpers Sinatra::Midas
+      helpers Sinatra::MidasTouch
       get('/form') do
         form do
           filters :strip

@@ -3,7 +3,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 require "rack/test"
 require "sinatra/base"
-require "midas"
+require "midas-touch"
 require "minitest"
 require "minitest/unit"
 

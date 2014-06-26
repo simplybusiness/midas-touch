@@ -1,15 +1,15 @@
 Given(/^I wish to create a validation rule$/) do
-  @expected_class = Midas::Validation
+  @expected_class = MidasTouch::Validation
 end
 
 Given(/^I have a validation rule$/) do
-  @rule = Midas::Validation.new(:example)
+  @rule = MidasTouch::Validation.new(:example)
 end
 
-When(/^I register the with Midas$/) do
-  Midas.register_validation(@rule)
+When(/^I register the with MidasTouch$/) do
+  MidasTouch.register_validation(@rule)
 end
 
 Then(/^it can be retrieved with its name$/) do
-  assert_equal(@rule, Midas.find_validation(:example))
+  assert_equal(@rule, MidasTouch.find_validation(:example))
 end
