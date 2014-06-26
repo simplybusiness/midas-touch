@@ -19,3 +19,8 @@ Feature: Handling collections of input
     And it has a validation rule
     When it is validated
     Then all inputs are validated
+
+  Scenario: Enumerate over values
+    Given I have an InputGroup
+    And it has inputs
+    Then I can iterate over the names and values

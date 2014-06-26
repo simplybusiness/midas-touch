@@ -41,6 +41,13 @@ And(/^it has a validation rule$/) do
   @group.validations << validation
 end
 
+And(/^it has inputs$/) do
+  @group.inputs << Midas::Input.new(:foo)
+  @group.inputs << Midas::Input.new(:bar)
+  @group.input(:foo).value = "foo"
+  @group.input(:bar).value = "bar"
+end
+
 When(/^it is validated$/) do
   @group.inputs << Midas::Input.new(:bar)
   @group.inputs << Midas::Input.new(:baz)
@@ -52,4 +59,10 @@ end
 Then(/^all inputs are validated$/) do
   refute(@result)
   assert(@group.error_on?(:baz))
+end
+
+Then(/^I can iterate over the names and values$/) do
+  act = Hash[@group.map { |k, v| [k, v] }]
+  exp = { :foo => "foo", :bar => "bar" }
+  assert_equal(exp, act)
 end

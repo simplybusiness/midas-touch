@@ -8,3 +8,8 @@ Feature: Validation rule representation
     When I create a sub-class of "Midas::Validation"
     Then the class can be initialized with a name
     And responds to the call method
+
+  Scenario: Registering validation rules
+    Given I have a validation rule
+    When I register the with Midas
+    Then it can be retrieved with its name

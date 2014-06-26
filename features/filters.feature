@@ -9,3 +9,8 @@ Feature: Filter logic
     When I create a sub-class of "Midas::Filter"
     Then the class can be initialized with a name
     And responds to the call method
+
+  Scenario: Registering filters for easy access
+    Given I have a Filter
+    When I register it with Midas
+    Then I can retrieve it by name
