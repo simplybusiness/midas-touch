@@ -20,6 +20,13 @@ Feature: Handling collections of input
     When it is validated
     Then all inputs are validated
 
+  Scenario: Invalidating inputs
+    Given I have an InputGroup
+    And it has inputs
+    When it is validated
+    And I invalidate an input
+    Then the input is invalid
+
   Scenario: Enumerate over values
     Given I have an InputGroup
     And it has inputs

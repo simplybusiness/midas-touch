@@ -55,6 +55,12 @@ module MidasTouch
       @failures.include?(input(name))
     end
 
+    def invalidate_input(input_name)
+      input = input(input_name)
+      input.invalidate!
+      @failures << input
+    end
+
     def to_h
       Hash[@inputs.map { |input| [input.name, input.value] }]
     end
