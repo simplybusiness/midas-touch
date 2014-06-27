@@ -66,3 +66,12 @@ Then(/^I can iterate over the names and values$/) do
   exp = { :foo => "foo", :bar => "bar" }
   assert_equal(exp, act)
 end
+
+And(/^I invalidate an input$/) do
+  @group.invalidate_input(:bar)
+end
+
+Then(/^the input is invalid$/) do
+  refute(@group.input(:bar).valid?)
+  refute(@group.valid?)
+end
