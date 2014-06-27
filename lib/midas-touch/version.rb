@@ -1,3 +1,3 @@
 module MidasTouch
-  VERSION = "1.0.2"
+  VERSION = "1.1.0"
 end

@@ -5,8 +5,8 @@ require 'midas-touch/version'
 Gem::Specification.new do |spec|
   spec.name          = "midas-touch"
   spec.version       = MidasTouch::VERSION
-  spec.authors       = ["Darren Coxall"]
-  spec.email         = ["darren@simplybusiness.co.uk"]
+  spec.authors       = ["Darren Coxall", "Martin Laine"]
+  spec.email         = ["darren@simplybusiness.co.uk", "martin.laine@simplybusiness.co.uk"]
   spec.summary       = %q{Turn all your inputs to Gold.}
   spec.description   = %q{Clean and validate your inputs from forms or other areas of your application.}
   spec.license       = "MIT"
